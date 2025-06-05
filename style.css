@@ -2,11 +2,15 @@ body, html {
   margin: 0;
   padding: 0;
   height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-header, footer {
+.page-header, .page-footer {
   height: 125px;
+  flex-shrink: 0;
+  
 }
-header {
+.page-header {
   background-color:#021930;
   width: 100%;
   position: sticky;
@@ -15,6 +19,15 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: center; /* or center/start/end depending on layout */
+}
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  flex: 1 0 auto; /* take up available space and grow */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
 }
 nav {
   flex: 1;
@@ -29,19 +42,15 @@ nav {
   flex: 1;
   justify-content: center;
 }
-footer {
-  position: sticky;
-  bottom: 0;
+.page-footer {
   width: 100%;
   background-color: #031a32;
   display: flex;
   align-items: end;
 }
 .copyright {
-  position: sticky;
   display: flex;
   align-items: center;
-  bottom: 0px;
   height: 50%;
   width: 100%;
   color: #708489;
@@ -50,7 +59,7 @@ footer {
 .copyright > p {
   margin-left: 2em;
 }
-ul {
+nav ul {
   list-style: none;
   display: flex;
   padding: 0;
@@ -84,16 +93,6 @@ hr {
   margin: 10px;
   color: #f5f5f5;
 }
-main {
-  max-width: 1200px;
-  margin: 0 auto;
-  height: calc(100vh - 250px);
-  display: flex;
-  flex-direction: column;
-}
-.articles {
-  display: flex;
-}
 .checkerboard {
   display: inline-block;
   width: 20px;
@@ -110,6 +109,7 @@ main {
 }
 h2 {
   text-transform: uppercase;
+  font: bold 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 li a::after {
   content: '';
@@ -132,4 +132,87 @@ li a.active::after {
   height:50%;
   display:flex;
   flex-direction: column;
+}
+.thumbnail {
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  display: block;
+  flex-shrink: 0; 
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.articles {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  justify-content: center;
+  max-width: 100%; /* optional */
+  overflow:auto; /* optional, just to be safe */
+}
+.articles > * {
+  flex-shrink: 1;
+  
+}
+article {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  height: 100%;              /* Make article stretch to fill parent if needed */
+  box-sizing: border-box;
+}
+article > * {
+  flex-shrink: 0; /* prevent shrinking */
+  min-width: 0;    /* still needed for text to wrap */
+  min-height: auto; /* allow natural height */
+}
+.article-info .author, .timestamp {
+  font: bold 10px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #b4b4b4;
+  text-transform: uppercase;
+}
+.article-info {
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;               /* Takes up remaining space */
+  box-sizing: border-box;
+}
+
+.article-info > * {
+  margin: 0.2em 0;
+  word-break: break-word;
+  flex-shrink: 0;
+}
+form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5em;
+}
+button {
+  background-color: #004ddf;
+  border: 2px solid transparent; /* reserve space */
+  padding: 1em;
+  color: white;
+  margin: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+button:hover {
+  background-color: #3377ff; /* lighter blue */
+}
+
+button:active {
+  background-color: white;
+  color: #004ddf;
+  border: solid #004ddf 2px;
 }

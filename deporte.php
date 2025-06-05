@@ -9,8 +9,8 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo"><?php include 'resource/debate-logo.svg.html';?></div>
+    <header class="page-header">
+        <div class="logo"><?php include 'resource/debate-logo.svg.html'; ?></div>
         <nav>
             <ul>
                 <li><a href="index.php" class="<?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>">HOME</a></li>
@@ -22,34 +22,151 @@
     </header>
 
     <main>
-        <section>
+        <section class="category">
             <div class="section-title">
                 <div class="checkerboard"></div>
                 <h2>Mundo</h2>
             </div>
             <div class="articles">
-                <article></article>
-                <article></article>
-                <article></article>
-                <article></article>
+                <article>
+                    <div class="thumbnail">
+                        <img src="img/thumbnails/flowers-thumb.png" alt="thumbnail">
+                    </div>
+                    <div class="article-info">
+                        <span class="topic-label">ESTADOS UNIDOS</span>
+                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                        <span class="author">POR ANDRES RODRIGUEZ</span>
+                        <time class="timestamp">HACE 31 MINUTOS</time>
+                    </div>
+
+                </article>
+
+                <article>
+                    <div class="thumbnail">
+                        <img src="img/thumbnails/obesity-thumb.png" alt="thumbnail">
+                    </div>
+                    <header>
+                        <span class="topic-label">ESTADOS UNIDOS</span>
+                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                    </header>
+
+                    <footer class="meta-info">
+                        <span class="author">POR ANDRES RODRIGUEZ</span>
+                        <time class="timestamp">HACE 31 MINUTOS</time>
+                    </footer>
+                </article>
+
+                <article>
+                    <div class="thumbnail">
+                        <img src="img/thumbnails/plane-thumb.png" alt="thumbnail">
+                    </div>
+                    <header>
+                        <span class="topic-label">ESTADOS UNIDOS</span>
+                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                    </header>
+
+                    <footer class="meta-info">
+                        <span class="author">POR ANDRES RODRIGUEZ</span>
+                        <time class="timestamp">HACE 31 MINUTOS</time>
+                    </footer>
+                </article>
+
+                <article>
+                    <div class="thumbnail">
+                        <img src="img/thumbnails/tornado-thumb.png" alt="thumbnail">
+                    </div>
+                    <header>
+                        <span class="topic-label">ESTADOS UNIDOS</span>
+                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                    </header>
+
+                    <footer class="meta-info">
+                        <span class="author">POR ANDRES RODRIGUEZ</span>
+                        <time class="timestamp">HACE 31 MINUTOS</time>
+                    </footer>
+                </article>
             </div>
             <hr>
         </section>
-        <section>  
+        <section class="category">
             <div class="section-title">
                 <div class="checkerboard"></div>
                 <h2>Deporte</h2>
             </div>
+                <div class="articles">
+                    <article>
+                        <div class="thumbnail">
+                            <img src="img/thumbnails/flowers-thumb.png" alt="thumbnail">
+                        </div>
+                        <header>
+                            <span class="topic-label">ESTADOS UNIDOS</span>
+                            <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                        </header>
+
+                        <footer class="meta-info">
+                            <span class="author">POR ANDRES RODRIGUEZ</span>
+                            <time class="timestamp">HACE 31 MINUTOS</time>
+                        </footer>
+                    </article>
+
+                    <article>
+                        <div class="thumbnail">
+                            <img src="img/thumbnails/obesity-thumb.png" alt="thumbnail">
+                        </div>
+                        <header>
+                            <span class="topic-label">ESTADOS UNIDOS</span>
+                            <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                        </header>
+
+                        <footer class="meta-info">
+                            <span class="author">POR ANDRES RODRIGUEZ</span>
+                            <time class="timestamp">HACE 31 MINUTOS</time>
+                        </footer>
+                    </article>
+
+                    <article>
+                        <div class="thumbnail">
+                            <img src="img/thumbnails/plane-thumb.png" alt="thumbnail">
+                        </div>
+                        <header>
+                            <span class="topic-label">ESTADOS UNIDOS</span>
+                            <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                        </header>
+
+                        <footer class="meta-info">
+                            <span class="author">POR ANDRES RODRIGUEZ</span>
+                            <time class="timestamp">HACE 31 MINUTOS</time>
+                        </footer>
+                    </article>
+
+                    <article>
+                        <div class="thumbnail">
+                            <img src="img/thumbnails/tornado-thumb.png" alt="thumbnail">
+                        </div>
+                        <header>
+                            <span class="topic-label">ESTADOS UNIDOS</span>
+                            <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
+                        </header>
+
+                        <footer class="meta-info">
+                            <span class="author">POR ANDRES RODRIGUEZ</span>
+                            <time class="timestamp">HACE 31 MINUTOS</time>
+                        </footer>
+                    </article>
+                </div>
+            
             <hr>
         </section>
     </main>
 
-    <footer>
-        <div class="copyright"><p>© Copyright EL DEBATE. Todos los derechos reservados.</p></div>
+    <footer class="page-footer">
+        <div class="copyright">
+            <p>© Copyright EL DEBATE. Todos los derechos reservados.</p>
+        </div>
     </footer>
-    
-    
-    
+
+
+
 
 </body>
 
