@@ -46,7 +46,8 @@ nav {
   width: 100%;
   background-color: #031a32;
   display: flex;
-  align-items: end;
+  flex-direction: column;
+  justify-content: end;
 }
 .copyright {
   display: flex;
@@ -133,12 +134,16 @@ li a.active::after {
   display:flex;
   flex-direction: column;
 }
+hr {
+  margin: 3em 0;
+}
 .thumbnail {
   width: 100%;
   aspect-ratio: 3 / 2;
   overflow: hidden;
   display: block;
-  flex-shrink: 0; 
+  flex-shrink: 0;
+  margin: 1em 0;
 }
 
 .thumbnail img {
@@ -147,6 +152,7 @@ li a.active::after {
   object-fit: cover;
   object-position: center;
   display: block;
+  border-radius: 2%;
 }
 .articles {
   display: flex;
@@ -178,7 +184,7 @@ article > * {
   text-transform: uppercase;
 }
 .article-info {
-  padding: 0.5em;
+
   display: flex;
   flex-direction: column;
   flex-grow: 1;               /* Takes up remaining space */
@@ -215,4 +221,63 @@ button:active {
   background-color: white;
   color: #004ddf;
   border: solid #004ddf 2px;
+}
+button.logout-button {
+  background-color: #c62828; /* dark red */
+  border: 2px solid transparent;
+  color: white;
+}
+
+button.logout-button:hover {
+  background-color: #e53935; /* lighter red */
+}
+
+button.logout-button:active {
+  background-color: white;
+  color: #c62828;
+  border: solid #c62828 2px;
+}
+.logout-form {
+  margin-top: auto;
+  align-self: end;
+}
+.article-form {
+  display: grid;
+  grid-template-columns: 200px 1fr; /* left column fixed, right flexible */
+  gap: 1rem 2rem;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.article-form label {
+  text-align: right;
+}
+
+.article-form input[type="text"],
+.article-form input[type="file"],
+.article-form select {
+  width: 100%;
+  padding: 0.5em;
+}
+
+.article-form textarea.full-width {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-height: 150px;
+  padding: 0.5em;
+}
+.article-form label[for="content"] {
+  grid-column: 1 / -1;
+  text-align: center;
+}
+
+.article-form .buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.article-form button {
+  padding: 0.5em 1.5em;
 }
