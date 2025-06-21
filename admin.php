@@ -24,7 +24,7 @@ include 'article_processing.php'
             </p>
         <?php else: ?>
             <form action="" method="post" enctype="multipart/form-data">
-                <h2>Uređivanje članaka</h2>
+                <h2>Uređivanje članaka <?php echo '(' . $_SESSION['first_name'] . ' ' . $_SESSION['last_name'] . ')'; ?></h2>
                 <label for="article-id">Odaberite članak:</label>
                 <select name="article-id" id="article-id" onchange="this.form.submit()">
                     <option value="new">Novi članak</option>

@@ -63,6 +63,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
 
   // Delete logic
   if (isset($_POST['delete']) && $selectedArticle) {
+    $stmt = $conn->prepare("SELECT image_url FROM article WHERE id = ?");
+    $stmt->bind_param("i", $selectedArticle);
+    $stmt->execute();
+    $stmt->bind_result($imageFile);
+    $stmt->fetch();
+    $stmt->close();
+
+    // Delete image and thumbnail
+    if ($imageFile) {
+        $mainPath = __DIR__ . "/img/" . $imageFile;
+        $thumbPath = __DIR__ . "/img/thumbnails/" . $imageFile;
+        if (file_exists($mainPath)) unlink($mainPath);
+        if (file_exists($thumbPath)) unlink($thumbPath);
+    }
+
     $stmt = $conn->prepare("DELETE FROM article WHERE id = ?");
     $stmt->bind_param("i", $selectedArticle);
     if ($stmt->execute()) {
@@ -162,6 +177,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
         }
       }
     }
+    else {
+    // Only require image on new article
+    if (!$selectedArticle) {
+        $errors[] = "Slika je obavezna za novi članak.";
+    }
+}
 
     // If image uploaded, set image_url, else keep old if exists
     if ($imageFileName) {
@@ -214,6 +235,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['title'])) {
       } else {
         $errors[] = "Greška prilikom spremanja članka: " . $stmt->error;
       }
+      $articles = $conn->query("SELECT id, title FROM article");
       $stmt->close();
     }
   }

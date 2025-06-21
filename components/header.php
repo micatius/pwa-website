@@ -1,5 +1,5 @@
     <header class="page-header">
-        <div class="logo"><?php include 'components/debate-logo.svg.html'; ?></div>
+        <div class="logo"> <a href="index.php"><?php include 'components/debate-logo.svg.html'; ?> </a></div>
         <nav>
             <ul>
                 <li><a href="index.php" class="<?= basename($_SERVER['PHP_SELF']) == 'index.php' ? 'active' : '' ?>">HOME</a></li>

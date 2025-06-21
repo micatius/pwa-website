@@ -1,0 +1,17 @@
+Open your php.ini file:
+
+In XAMPP, the path is usually:
+
+C:\xampp\php\php.ini
+
+Search for this line (use Ctrl+F):
+
+;extension=gd
+
+Uncomment it by removing the semicolon ;
+
+extension=gd
+
+Save the file.
+
+Restart Apache from the XAMPP control panel to apply the changes.

@@ -1,3 +1,6 @@
+<?php
+include 'scripts/fetch_articles.php';
+?>
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -18,66 +21,7 @@
                 <h2>Mundo</h2>
             </div>
             <div class="articles">
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/flowers-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-
-                </article>
-
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/obesity-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-                </article>
-
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/plane-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-                </article>
-
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/tornado-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-                </article>
+                <?php renderArticlesByCategory(1, 4); ?>
             </div>
         </section>
         <hr>
@@ -87,65 +31,7 @@
                 <h2>Deporte</h2>
             </div>
             <div class="articles">
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/flowers-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-                </article>
-
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/obesity-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-                </article>
-
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/plane-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-                </article>
-
-                <article>
-                    <div class="thumbnail">
-                        <img src="img/thumbnails/tornado-thumb.png" alt="thumbnail">
-                    </div>
-                    <div class="article-info">
-                        <span class="topic-label">ESTADOS UNIDOS</span>
-                        <h3 class="headline">Tornados dejan daños en casas del sur de Estados Unidos</h2>
-                            <div>
-                                <span class="author">POR ANDRES RODRIGUEZ</span>
-                                <time class="timestamp"> - HACE 31 MINUTOS</time>
-                            </div>
-
-                    </div>
-                </article>
+                <?php renderArticlesByCategory(2, 4); ?>
             </div>
         </section>
         <hr>

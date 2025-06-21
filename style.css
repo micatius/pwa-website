@@ -1,47 +1,62 @@
-body, html {
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body,
+html {
   margin: 0;
   padding: 0;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
-.page-header, .page-footer {
+
+.page-header,
+.page-footer {
   height: 125px;
   flex-shrink: 0;
-  
 }
+
 .page-header {
-  background-color:#021930;
+  background-color: #021930;
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* or center/start/end depending on layout */
+  justify-content: center;
 }
+
 main {
   max-width: 1200px;
+  min-height: 100vh;
   margin: 0 auto;
-  flex: 1 0 auto; /* take up available space and grow */
+  flex: 1 0 auto;
   width: 100%;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  align-items: center;
+  padding: 0 1em;
+  /* CHANGE: add some horizontal padding on smaller screens */
 }
+
 nav {
   flex: 1;
   min-height: 0;
-  color:white;
+  color: white;
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
 }
+
 .logo {
-  display:flex;
+  display: flex;
   flex: 1;
   justify-content: center;
 }
+
 .page-footer {
   width: 100%;
   background-color: #031a32;
@@ -49,6 +64,7 @@ nav {
   flex-direction: column;
   justify-content: end;
 }
+
 .copyright {
   display: flex;
   align-items: center;
@@ -57,9 +73,11 @@ nav {
   color: #708489;
   background-color: #091523;
 }
-.copyright > p {
+
+.copyright>p {
   margin-left: 2em;
 }
+
 nav ul {
   list-style: none;
   display: flex;
@@ -69,20 +87,24 @@ nav ul {
   align-items: center;
   margin: 0 auto;
   height: 100%;
+  flex-wrap: wrap;
+  /* CHANGE: allow nav items to wrap on smaller screens */
 }
+
 li {
-  display:flex;
+  display: flex;
   font: bold 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   letter-spacing: 0.05em;
   height: 100%;
-  width: 100%;
-  
+  width: auto;
+  /* CHANGE: better than 100% to avoid nav overflow */
 }
+
 li a {
   position: relative;
   display: flex;
-  align-items: center;          /* vertical centering */
-  justify-content: center; 
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   text-align: center;
@@ -90,28 +112,42 @@ li a {
   text-decoration: none;
   color: white;
 }
+
 hr {
-  margin: 10px;
+  margin: 2em 0;
   color: #f5f5f5;
+  align-self: stretch;
 }
+
 .checkerboard {
   display: inline-block;
   width: 20px;
   height: 36px;
   background:
-    repeating-conic-gradient(#0026e4c0 0% 25%, #eeeeee00 0% 50%) 
-    0 0/ 4px 4px;
+    repeating-conic-gradient(#0026e4c0 0% 25%, #eeeeee00 0% 50%) 0 0/ 4px 4px;
 }
+
 .section-title {
-  display:flex;
+  display: flex;
   flex-direction: row;
   align-items: center;
   gap: 20px;
 }
+
 h2 {
   text-transform: uppercase;
   font: bold 16px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  
+  /* CHANGE: use rem units */
 }
+
+form select {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
 li a::after {
   content: '';
   position: absolute;
@@ -129,14 +165,13 @@ li a:hover::after,
 li a.active::after {
   transform: scaleX(1);
 }
+
 .category {
-  height:50%;
-  display:flex;
+  height: 50%;
+  display: flex;
   flex-direction: column;
 }
-hr {
-  margin: 3em 0;
-}
+
 .thumbnail {
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -154,48 +189,71 @@ hr {
   display: block;
   border-radius: 2%;
 }
+
 .articles {
   display: flex;
   gap: 20px;
   flex-direction: row;
   justify-content: center;
-  max-width: 100%; /* optional */
-  overflow:auto; /* optional, just to be safe */
+  flex-wrap: wrap;
+  /* CHANGE: allow articles to wrap on small screens */
+  max-width: 100%;
+  /* optional */
+  overflow: visible;
+  /* optional, just to be safe */
 }
-.articles > * {
+
+.articles>* {
   flex-shrink: 1;
-  
 }
-article {
+
+.articles article {
   display: flex;
+  width: 22%;
+  /* CHANGE: fixed width replaced in media queries */
   flex-direction: column;
   flex: 1 1 auto;
-  height: 100%;              /* Make article stretch to fill parent if needed */
   box-sizing: border-box;
+  min-width: 250px;
+  /* CHANGE: set minimum width so articles don’t get too narrow */
 }
-article > * {
-  flex-shrink: 0; /* prevent shrinking */
-  min-width: 0;    /* still needed for text to wrap */
-  min-height: auto; /* allow natural height */
+
+article>* {
+  flex-shrink: 0;
+  /* prevent shrinking */
+  min-width: 0;
+  /* still needed for text to wrap */
+  min-height: auto;
+  /* allow natural height */
 }
-.article-info .author, .timestamp {
+
+.article-info .author,
+.timestamp {
   font: bold 10px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #b4b4b4;
   text-transform: uppercase;
 }
-.article-info {
 
+.article-info {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;               /* Takes up remaining space */
+  flex-grow: 1;
   box-sizing: border-box;
 }
 
-.article-info > * {
+.article-info>* {
   margin: 0.2em 0;
   word-break: break-word;
   flex-shrink: 0;
 }
+
+.topic-label {
+  text-transform: uppercase;
+  font-size: 0.7em;
+  color: #2d5fd7;
+  font-weight: bold;
+}
+
 form {
   display: flex;
   justify-content: center;
@@ -203,9 +261,10 @@ form {
   align-items: center;
   gap: 0.5em;
 }
+
 button {
   background-color: #004ddf;
-  border: 2px solid transparent; /* reserve space */
+  border: 2px solid transparent;
   padding: 1em;
   color: white;
   margin: 1em;
@@ -213,8 +272,9 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 button:hover {
-  background-color: #3377ff; /* lighter blue */
+  background-color: #3377ff;
 }
 
 button:active {
@@ -222,14 +282,15 @@ button:active {
   color: #004ddf;
   border: solid #004ddf 2px;
 }
+
 button.logout-button {
-  background-color: #c62828; /* dark red */
+  background-color: #c62828;
   border: 2px solid transparent;
   color: white;
 }
 
 button.logout-button:hover {
-  background-color: #e53935; /* lighter red */
+  background-color: #e53935;
 }
 
 button.logout-button:active {
@@ -237,13 +298,16 @@ button.logout-button:active {
   color: #c62828;
   border: solid #c62828 2px;
 }
+
 .logout-form {
   margin-top: auto;
   align-self: end;
 }
+
 .article-form {
   display: grid;
-  grid-template-columns: 200px 1fr; /* left column fixed, right flexible */
+  grid-template-columns: 200px 1fr;
+  /* left column fixed, right flexible */
   gap: 1rem 2rem;
   align-items: center;
   max-width: 800px;
@@ -268,6 +332,7 @@ button.logout-button:active {
   min-height: 150px;
   padding: 0.5em;
 }
+
 .article-form label[for="content"] {
   grid-column: 1 / -1;
   text-align: center;
@@ -280,4 +345,182 @@ button.logout-button:active {
 
 .article-form button {
   padding: 0.5em 1.5em;
+}
+
+.logo svg .logo-white {
+  transition: fill 0.3s ease;
+  fill: #ffffff;
+}
+
+.logo a:hover svg .logo-white {
+  fill: #004ddf;
+}
+
+main>article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+#article-id {
+  max-width: 50%;
+}
+
+/* ARTICLE PAGE */
+
+article > header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+article h1 {
+  text-align: center;
+  
+  font-size: 3rem;
+  margin: 0 auto;
+  margin-top: -7px;
+  line-height: 1;
+}
+.article-img {
+  width:100%;
+  height: auto;
+  display: block;
+  margin: 16px 0;
+}
+.article-category {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  color: #2d5fd7;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+  
+}
+.article-keyword {
+  font-family:'Times New Roman', Times, serif;
+  opacity: 70%;
+  font-size:1.3rem;
+}
+.article-time {
+  opacity: 50%;
+  font-size: 0.8rem;
+}
+article .content {
+  font-family:'Times New Roman', Times, serif;
+  line-height: 1.5;
+  font-size: 1.1rem;
+  opacity: 85%;
+  margin: 1rem;
+  text-align: justify;
+}
+.article-author {
+  text-transform: uppercase;
+  align-self: flex-end;
+  margin: 0px;
+  line-height: 1;
+  opacity: 80%;
+}
+
+
+/* ===========================
+  MEDIA QUERIES FOR RESPONSIVENESS
+=========================== */
+
+/* Mobile Phones and small tablets (up to 600px) */
+@media (max-width: 600px) {
+  main {
+    max-width: 100%;
+    padding: 0 0.5em;
+  }
+
+  nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25em;
+  }
+
+  nav li {
+    flex: 1 0 auto;
+    font-size: 11px;
+    padding: 0 0.25em;
+    min-width: fit-content;
+  }
+
+  nav li a {
+    padding: 0.5em 0.25em;
+  }
+
+  .articles article {
+    width: 100%;
+    /* full width articles stacked */
+    min-width: auto;
+    /* remove min-width */
+  }
+
+  .article-form {
+    grid-template-columns: 1fr;
+    /* stack form fields */
+  }
+
+  .article-form label {
+    text-align: left;
+  }
+
+  .article-form label[for="content"] {
+    text-align: left;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  article h1 {
+    font-size: 1.5rem;
+  }
+      article .content {
+      font-size: 0.9rem;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .articles article {
+    width: 45%;
+    /* two columns */
+    min-width: auto;
+  }
+    article h1 {
+    font-size: 2rem;
+  }
+    article .content {
+      font-size: 1rem;
+  }
+}
+
+/* Large screens (up to 3840px 4K) */
+@media (min-width: 1920px) {
+  main {
+    max-width: 70%;
+    /* allow content to expand more on big screens */
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    /* increase font size */
+  }
+
+  li {
+    font-size: 12px;
+    /* increase nav font size */
+  }
+
+  .articles article {
+    width: 20%;
+    /* more columns */
+  }
+
+  article > header {
+  width: 70%;
+  }
+
 }
