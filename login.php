@@ -14,7 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (!$errors) {
-        $conn = new mysqli("localhost", "root", "", "debate_news");
+        include_once 'config.php';
+        $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
         if ($conn->connect_error) {
             die("Database connection failed: " . $conn->connect_error);
         }

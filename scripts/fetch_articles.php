@@ -1,7 +1,8 @@
 <?php
 function renderArticlesByCategory($categoryId, $limit = 4)
 {
-    $conn = new mysqli("localhost", "root", "", "debate_news");
+    include_once 'config.php';
+    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
     if ($conn->connect_error) {
         echo "<p>Error connecting to database.</p>";
         return;
