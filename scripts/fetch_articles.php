@@ -1,7 +1,7 @@
 <?php
 function renderArticlesByCategory($categoryId, $limit = 4)
 {
-    include_once 'config.php';
+    include __DIR__ . '/../config.php';
     $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
     if ($conn->connect_error) {
         echo "<p>Error connecting to database.</p>";
